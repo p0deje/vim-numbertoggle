@@ -102,14 +102,3 @@ autocmd WinEnter * :call FocusGained()
 " relative line numbers when switching back to normal mode.
 autocmd InsertEnter * :call InsertEnter()
 autocmd InsertLeave * :call InsertLeave()
-
-" ensures default behavior / backward compatibility
-if ! exists ( 'g:UseNumberToggleTrigger' )
-	let g:UseNumberToggleTrigger = 1
-endif
-
-if exists('g:NumberToggleTrigger')
-	exec "nnoremap <silent> " . g:NumberToggleTrigger . " :call NumberToggle()<cr>"
-elseif g:UseNumberToggleTrigger
-	nnoremap <silent> <C-n> :call NumberToggle()<cr>
-endif
